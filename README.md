@@ -1,5 +1,7 @@
 # Cornerstone3D + Angular Demo
 
+This repo was built to demonstrate https://github.com/cornerstonejs/cornerstone3D/pull/1982 PR for integrating Cornerstone3D with Angular.
+
 This is demo project, showing how to integrate Cornerstone3D with Angular.
 
 The steps to integrate Cornerstone3D with Angular are as follows:
