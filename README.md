@@ -1,4 +1,4 @@
-# AngularC3d
+# Cornerstone3D + Angular Demo
 
 This is demo project, showing how to integrate Cornerstone3D with Angular.
 
