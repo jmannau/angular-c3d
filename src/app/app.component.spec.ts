@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'angular-c3d' title`, () => {
+  it(`should have the 'angular-cornerstone3d' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-c3d');
+    expect(app.title).toEqual('angular-cornerstone3d');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular-c3d');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular-cornerstone3d');
   });
 });
