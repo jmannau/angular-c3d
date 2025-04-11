@@ -18,6 +18,10 @@ This demo project uses a development version of `@cornerstonejs/dicom-image-load
 `npm install` to install the dependencies.
 `npm start` to start the development server.
 
+## Tests
+
+`npm test` to run the unit tests.
+
 ## Production Build
 
 `npm run build` to build the project for production. The output will be in the `dist` folder.

@@ -131,7 +131,9 @@ export class CornerstoneViewportComponent implements OnInit {
         );
       },
       /**
-       * Customse the
+       * Customise the paths to the required WASM files.  These paths are
+       * determined by your output path for these files in `angular.json`. @see
+       * file://../../../angular.json or see the README for more details.
        */
       decodeConfig: {
         wasmUrlCodecCharls: './charlswasm_decode.wasm',
