@@ -99,6 +99,27 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "openjphjs.wasm",
+                "input": "node_modules/@cornerstonejs/codec-openjph/dist/"
+              },
+              {
+                "glob": "openjpegwasm_decode.wasm",
+                "input": "node_modules/@cornerstonejs/codec-openjpeg/dist/"
+              },
+              {
+                "glob": "libjpegturbowasm_decode.wasm",
+                "input": "node_modules/@cornerstonejs/codec-libjpeg-turbo-8bit/dist/"
+              },
+              {
+                "glob": "charlswasm_decode.wasm",
+                "input": "node_modules/@cornerstonejs/codec-charls/dist"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/tests/testImages/",
+                "output": "assets/testImages/"
               }
             ],
             "styles": [

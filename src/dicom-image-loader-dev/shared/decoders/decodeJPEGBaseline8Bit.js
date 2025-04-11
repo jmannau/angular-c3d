@@ -28,7 +28,7 @@ function initLibjpegTurbo(wasmUrlCodecLibjpegTurbo8bit) {
     });
 }
 async function decodeAsync(compressedImageFrame, imageInfo, wasmUrlCodecLibjpegTurbo8bit) {
-    await initLibjpegTurbo();
+    await initLibjpegTurbo(wasmUrlCodecLibjpegTurbo8bit);
     const decoder = local.decoder;
     const encodedBufferInWASM = decoder.getEncodedBuffer(compressedImageFrame.length);
     encodedBufferInWASM.set(compressedImageFrame);
