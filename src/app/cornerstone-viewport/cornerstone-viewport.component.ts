@@ -120,7 +120,6 @@ export class CornerstoneViewportComponent implements OnInit {
      *
      */
     dicomImageLoaderInit({
-      maxWebWorkers: 1,
       /**
        *
        * Create a custom web worker factory to load the angular worker.  This allows
