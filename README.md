@@ -4,14 +4,12 @@ This repo was built to demonstrate https://github.com/cornerstonejs/cornerstone3
 
 This is demo project, showing how to integrate Cornerstone3D with Angular.
 
-The steps to integrate Cornerstone3D with Angular are as follows:
+This project integrates @cornerstonejs/dicom-image-loader with Angular by:
 
-1. use `ng g web-worker` to create a web worker
-2. import `decodeImageFrameWorker` from `@cornerstonejs/dicom-image-loader` in the web worker. This will allow the angular build process to include the appropriate dicom-image-loader worker in the build. For an example, see `src/app/cornerstone-image-decoder.worker.ts`
-3. Update `angular.json` to include the required wasm assets in the build output as assets. There are 4 wasm files that need to be included. The paths are relative to the `angular.json` file. See `./angular.json`
-4. Initialise `@cornerstonejs/dicom-image-loader` setting a custom webWorkerFactory function to load the web worker from #2 above and the correct paths to the wasm files in #3. see `src/app/cornerstone-viewport/cornerstone-viewport.component.ts`
-
-This demo project uses a development version of `@cornerstonejs/dicom-image-loader` manually copied into `src/dicom-image-loader-dev`
+1. using `patch-package` to patch the installed node_module files to load the wasm paths from the Angular assets folder. See `patches/` folder for the patch files. This is automatically applied when you run `npm install` because of the `postinstall` script in `package.json`
+2. using Angular build tools to include the required wasm files in `assets/wasm` - see `angular.json` for the configuration to include these files in the build output.
+3. Using Angular to create a custom web worker that imports the `decodeImageFrameWorker` from `@cornerstonejs/dicom-image-loader. This packages and builds the worker correctly using the standard Angular build tools. See `src/app/cornerstone-image-decoder.worker.ts` for the worker code.
+4. Adding a custom C3D WebWorker to load the required `dicomImageLoader` worker for C3D to work. see `src/app/cornerstone-viewport/cornerstone-viewport.component.ts` for the configuration of the C3D web worker to use our custom Angular web worker.
 
 ## Development
 
