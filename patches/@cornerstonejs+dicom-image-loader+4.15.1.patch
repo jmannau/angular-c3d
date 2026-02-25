@@ -1,0 +1,45 @@
+diff --git a/node_modules/@cornerstonejs/dicom-image-loader/dist/esm/shared/decoders/decodeHTJ2K.js b/node_modules/@cornerstonejs/dicom-image-loader/dist/esm/shared/decoders/decodeHTJ2K.js
+index 2f3077f..0f5a0ee 100644
+--- a/node_modules/@cornerstonejs/dicom-image-loader/dist/esm/shared/decoders/decodeHTJ2K.js
++++ b/node_modules/@cornerstonejs/dicom-image-loader/dist/esm/shared/decoders/decodeHTJ2K.js
+@@ -1,5 +1,5 @@
+-import openJphFactory, {} from '@cornerstonejs/codec-openjph/wasmjs';
+-const openjphWasm = new URL('@cornerstonejs/codec-openjph/wasm', import.meta.url);
++import openJphFactory, { } from '@cornerstonejs/codec-openjph/wasmjs';
++const openjphWasm = './assets/wasm/openjphjs.wasm';
+ const local = {
+     codec: undefined,
+     decoder: undefined,
+diff --git a/node_modules/@cornerstonejs/dicom-image-loader/dist/esm/shared/decoders/decodeJPEG2000.js b/node_modules/@cornerstonejs/dicom-image-loader/dist/esm/shared/decoders/decodeJPEG2000.js
+index ef7334f..0e30fa8 100644
+--- a/node_modules/@cornerstonejs/dicom-image-loader/dist/esm/shared/decoders/decodeJPEG2000.js
++++ b/node_modules/@cornerstonejs/dicom-image-loader/dist/esm/shared/decoders/decodeJPEG2000.js
+@@ -1,5 +1,5 @@
+ import openJpegFactory from '@cornerstonejs/codec-openjpeg/decodewasmjs';
+-const openjpegWasm = new URL('@cornerstonejs/codec-openjpeg/decodewasm', import.meta.url);
++const openjpegWasm = './assets/wasm/openjpegwasm_decode.wasm';
+ const local = {
+     codec: undefined,
+     decoder: undefined,
+diff --git a/node_modules/@cornerstonejs/dicom-image-loader/dist/esm/shared/decoders/decodeJPEGBaseline8Bit.js b/node_modules/@cornerstonejs/dicom-image-loader/dist/esm/shared/decoders/decodeJPEGBaseline8Bit.js
+index 788d1f9..46ca7ef 100644
+--- a/node_modules/@cornerstonejs/dicom-image-loader/dist/esm/shared/decoders/decodeJPEGBaseline8Bit.js
++++ b/node_modules/@cornerstonejs/dicom-image-loader/dist/esm/shared/decoders/decodeJPEGBaseline8Bit.js
+@@ -1,5 +1,5 @@
+ import libjpegTurboFactory from '@cornerstonejs/codec-libjpeg-turbo-8bit/decodewasmjs';
+-const libjpegTurboWasm = new URL('@cornerstonejs/codec-libjpeg-turbo-8bit/decodewasm', import.meta.url);
++const libjpegTurboWasm = './assets/wasm/libjpegturbowasm_decode.wasm'
+ const local = {
+     codec: undefined,
+     decoder: undefined,
+diff --git a/node_modules/@cornerstonejs/dicom-image-loader/dist/esm/shared/decoders/decodeJPEGLS.js b/node_modules/@cornerstonejs/dicom-image-loader/dist/esm/shared/decoders/decodeJPEGLS.js
+index 4bbfe06..cec750b 100644
+--- a/node_modules/@cornerstonejs/dicom-image-loader/dist/esm/shared/decoders/decodeJPEGLS.js
++++ b/node_modules/@cornerstonejs/dicom-image-loader/dist/esm/shared/decoders/decodeJPEGLS.js
+@@ -1,5 +1,5 @@
+ import charlsFactory from '@cornerstonejs/codec-charls/decodewasmjs';
+-const charlsWasm = new URL('@cornerstonejs/codec-charls/decodewasm', import.meta.url);
++const charlsWasm = './assets/wasm/charlswasm_decode.wasm';
+ const local = {
+     codec: undefined,
+     decoder: undefined,

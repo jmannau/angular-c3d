@@ -11,6 +11,7 @@ import {
   cache,
   init as csRenderInit,
   Enums,
+  getWebWorkerManager,
   RenderingEngine,
   Types,
   volumeLoader,
@@ -19,7 +20,27 @@ import { init as csToolsInit } from '@cornerstonejs/tools';
 import { api } from 'dicomweb-client';
 import cornerstoneDICOMImageLoader, {
   init as dicomImageLoaderInit,
-} from '../../dicom-image-loader-dev';
+} from '@cornerstonejs/dicom-image-loader';
+
+/**
+ * Override the Cornerstone default `dicomImageLoader` worker with our own built
+ * version from the angular project.
+ *
+ * Including it like this allows Angular to build the worker using its own build
+ * tools.  Configuring it here tells Cornerstone to use our built version.
+ */
+const webWorkerManager = getWebWorkerManager();
+webWorkerManager.registerWorker(
+  'dicomImageLoader',
+  () => {
+    return new Worker(
+      new URL('../cornerstone-image-decoder.worker.ts', import.meta.url),
+    );
+  },
+  {
+    maxWorkerInstances: 4,
+  },
+);
 
 @Component({
   selector: 'app-cornerstone-viewport',
@@ -101,7 +122,7 @@ export class CornerstoneViewportComponent implements OnInit {
 
         cornerstoneDICOMImageLoader.wadors.metaDataManager.add(
           imageId,
-          instanceMetaData
+          instanceMetaData,
         );
         return imageId;
       });
@@ -119,36 +140,14 @@ export class CornerstoneViewportComponent implements OnInit {
      *
      *
      */
-    dicomImageLoaderInit({
-      /**
-       *
-       * Create a custom web worker factory to load the angular worker.  This allows
-       * us to build the worker using the standard angular build process.
-       */
-      webWorkerFactory: () => {
-        return new Worker(
-          new URL('../cornerstone-image-decoder.worker.ts', import.meta.url)
-        );
-      },
-      /**
-       * Customise the paths to the required WASM files.  These paths are
-       * determined by your output path for these files in `angular.json`. @see
-       * file://../../../angular.json or see the README for more details.
-       */
-      decodeConfig: {
-        wasmUrlCodecCharls: './charlswasm_decode.wasm',
-        wasmUrlCodecLibJpegTurbo8bit: './libjpegturbowasm_decode.wasm',
-        wasmUrlCodecOpenJpeg: './openjpegwasm_decode.wasm',
-        wasmUrlCodecOpenJph: './openjphjs.wasm',
-      },
-    });
+    dicomImageLoaderInit();
 
     const imageIds = await createImageIdsAndCacheMetaData({
       StudyInstanceUID:
         '1.3.6.1.4.1.14519.5.2.1.7009.2403.334240657131972136850343327463',
       SeriesInstanceUID:
         '1.3.6.1.4.1.14519.5.2.1.7009.2403.226151125820845824875394858561',
-      wadoRsRoot: 'https://d3t6nz73ql33tx.cloudfront.net/dicomweb',
+      wadoRsRoot: 'https://d14fa38qiwhyfd.cloudfront.net/dicomweb',
     });
 
     const renderingEngineId = 'myRenderingEngine';
@@ -167,7 +166,7 @@ export class CornerstoneViewportComponent implements OnInit {
     renderingEngine.enableElement(viewportInput);
 
     const viewport = renderingEngine.getViewport(
-      viewportId
+      viewportId,
     ) as Types.IVolumeViewport;
 
     const volumeId = 'myVolume';

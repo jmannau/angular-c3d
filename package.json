@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "postinstall": "patch-package"
   },
   "private": true,
   "dependencies": {
@@ -18,9 +19,9 @@
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@cornerstonejs/calculate-suv": "^1.1.0",
-    "@cornerstonejs/core": "^3.9.1",
-    "@cornerstonejs/dicom-image-loader": "^3.9.1",
-    "@cornerstonejs/tools": "^3.9.1",
+    "@cornerstonejs/core": "^4.18.2",
+    "@cornerstonejs/dicom-image-loader": "^4.18.2",
+    "@cornerstonejs/tools": "^4.18.2",
     "dcmjs": "^0.38.3",
     "dicom-parser": "^1.8.21",
     "dicomweb-client": "0.10.4",
@@ -39,6 +40,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "patch-package": "^8.0.1",
     "typescript": "~5.7.2"
   },
   "browser": {

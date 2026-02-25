@@ -27,19 +27,23 @@
               },
               {
                 "glob": "openjphjs.wasm",
-                "input": "node_modules/@cornerstonejs/codec-openjph/dist/"
+                "input": "node_modules/@cornerstonejs/codec-openjph/dist/",
+                "output": "assets/wasm"
               },
               {
                 "glob": "openjpegwasm_decode.wasm",
-                "input": "node_modules/@cornerstonejs/codec-openjpeg/dist/"
+                "input": "node_modules/@cornerstonejs/codec-openjpeg/dist/",
+                "output": "assets/wasm"
               },
               {
                 "glob": "libjpegturbowasm_decode.wasm",
-                "input": "node_modules/@cornerstonejs/codec-libjpeg-turbo-8bit/dist/"
+                "input": "node_modules/@cornerstonejs/codec-libjpeg-turbo-8bit/dist/",
+                "output": "assets/wasm"
               },
               {
                 "glob": "charlswasm_decode.wasm",
-                "input": "node_modules/@cornerstonejs/codec-charls/dist"
+                "input": "node_modules/@cornerstonejs/codec-charls/dist",
+                "output": "assets/wasm"
               }
             ],
             "styles": [
@@ -102,19 +106,23 @@
               },
               {
                 "glob": "openjphjs.wasm",
-                "input": "node_modules/@cornerstonejs/codec-openjph/dist/"
+                "input": "node_modules/@cornerstonejs/codec-openjph/dist/",
+                "output": "assets/wasm"
               },
               {
                 "glob": "openjpegwasm_decode.wasm",
-                "input": "node_modules/@cornerstonejs/codec-openjpeg/dist/"
+                "input": "node_modules/@cornerstonejs/codec-openjpeg/dist/",
+                "output": "assets/wasm"
               },
               {
                 "glob": "libjpegturbowasm_decode.wasm",
-                "input": "node_modules/@cornerstonejs/codec-libjpeg-turbo-8bit/dist/"
+                "input": "node_modules/@cornerstonejs/codec-libjpeg-turbo-8bit/dist/",
+                "output": "assets/wasm"
               },
               {
                 "glob": "charlswasm_decode.wasm",
-                "input": "node_modules/@cornerstonejs/codec-charls/dist"
+                "input": "node_modules/@cornerstonejs/codec-charls/dist",
+                "output": "assets/wasm"
               },
               {
                 "glob": "**/*",
